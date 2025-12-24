@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="calculator">
+    <div class="header">
+        <h1>Calculator</h1>
+        <div class="header-buttons">
+            <button id="modeToggle" class="mode-btn">≡ Scientific</button>
+            <button id="historyToggle" class="mode-btn">📋 History</button>
+        </div>
+    </div>
+
+    <div class="display-section">
+        <input type="text" id="display" readonly>
+        <div id="result-preview" class="result-preview">0</div>
+    </div>
+
+    <!-- BASIC MODE (visible by default) -->
+    <div class="buttons basic-mode" id="basicButtons">
+        <button class="clear">C</button>
+        <button class="delete">⌫</button>
+        <button class="operator">÷</button>
+        <button class="operator">×</button>
+
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class="operator">−</button>
+
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button class="operator">+</button>
+
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="equal" style="grid-row: span 2;">=</button>
+
+        <button class="zero">0</button>
+        <button>.</button>
+    </div>
+
+    <!-- SCIENTIFIC MODE (hidden by default) -->
+    <div class="buttons scientific-mode hidden" id="scientificButtons">
+        <!-- Row 1: Memory functions -->
+        <button class="function">mc</button>
+        <button class="function">m+</button>
+        <button class="function">m−</button>
+        <button class="function">mr</button>
+        <button class="clear">AC</button>
+        <button class="delete">⌫</button>
+        <button class="function">+/−</button>
+        <button class="operator">÷</button>
+
+        <!-- Row 2: Power and Brackets -->
+        <button class="function">2nd</button>
+        <button class="function">(</button>
+        <button class="function">)</button>
+        <button class="function">10ˣ</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class="operator">×</button>
+
+        <!-- Row 3: Inverses and powers -->
+        <button class="function">1/x</button>
+        <button class="function">x²</button>
+        <button class="function">x³</button>
+        <button class="function">xʸ</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button class="operator">−</button>
+
+        <!-- Row 4: Factorial and roots -->
+        <button class="function">x!</button>
+        <button class="function">√</button>
+        <button class="function">∛</button>
+        <button class="function">ln</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="operator">+</button>
+
+        <!-- Row 5: Trigonometric -->
+        <button class="function">sin</button>
+        <button class="function">cos</button>
+        <button class="function">tan</button>
+        <button class="function">log</button>
+        <button class="zero">0</button>
+        <button>.</button>
+        <button class="function">%</button>
+        <button class="equal">=</button>
+
+        <!-- Row 6: Hyperbolic and other -->
+        <button class="function">sinh</button>
+        <button class="function">cosh</button>
+        <button class="function">tanh</button>
+        <button class="function">e</button>
+        <button class="function">π</button>
+        <button class="function">Deg</button>
+        <button class="function">Rad</button>
+        <button class="function">Gra</button>
+    </div>
+</div>
+
+<div id="historyModal" class="history-modal hidden">
+    <div class="history-modal-content">
+        <div class="history-modal-header">
+            <h2>Calculation History</h2>
+            <button id="closeHistory" class="close-btn">&times;</button>
+        </div>
+        <button id="clearHistory" class="clear-history-btn">Clear History</button>
+        <div id="historyList" class="history-list"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

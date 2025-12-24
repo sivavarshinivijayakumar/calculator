@@ -1,0 +1,461 @@
+/* CSS Reset & Global Styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+body {
+    background: linear-gradient(135deg, #2d1b4e 0%, #0f0a1a 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+.calculator-wrapper {
+    display: flex;
+    gap: 20px;
+    max-width: 1500px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.calculator {
+    background: linear-gradient(145deg, #1a0d2e, #0f0a1a);
+    padding: 30px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 1200px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 
+                inset 0 1px 0 rgba(147, 51, 234, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.history-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.history-modal.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.history-modal-content {
+    background: linear-gradient(145deg, #1a0d2e, #0f0a1a);
+    padding: 25px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    max-height: 70vh;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(147, 51, 234, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.history-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(147, 51, 234, 0.3);
+}
+
+.history-modal-header h2 {
+    color: #e0b0ff;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(147, 51, 234, 0.4);
+}
+
+.close-btn {
+    background: linear-gradient(145deg, #5b21b6, #7c3aed);
+    color: white;
+    border: 1px solid rgba(147, 51, 234, 0.5);
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: linear-gradient(145deg, #7c3aed, #a855f7);
+    border: 1px solid rgba(147, 51, 234, 0.8);
+}
+
+.clear-history-btn {
+    background: linear-gradient(145deg, #5b21b6, #7c3aed);
+    color: white;
+    border: 1px solid rgba(147, 51, 234, 0.5);
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.clear-history-btn:hover {
+    background: linear-gradient(145deg, #7c3aed, #a855f7);
+    border: 1px solid rgba(147, 51, 234, 0.8);
+}
+
+.history-list {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.history-item {
+    background: linear-gradient(145deg, #2d1b4e, #1a0d2e);
+    border: 1px solid rgba(147, 51, 234, 0.3);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+}
+
+.history-item:hover {
+    background: linear-gradient(145deg, #3d2b5e, #2d1b4e);
+    border: 1px solid rgba(147, 51, 234, 0.6);
+    box-shadow: 0 4px 8px rgba(147, 51, 234, 0.2);
+}
+
+.history-expression {
+    color: #d8b4fe;
+    font-size: 12px;
+    margin-bottom: 5px;
+    word-break: break-all;
+}
+
+.history-result {
+    color: #b366ff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.history-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.history-list::-webkit-scrollbar-track {
+    background: rgba(147, 51, 234, 0.1);
+    border-radius: 3px;
+}
+
+.history-list::-webkit-scrollbar-thumb {
+    background: linear-gradient(145deg, #7c3aed, #a855f7);
+    border-radius: 3px;
+}
+
+.history-list::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(145deg, #a855f7, #c084fc);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(147, 51, 234, 0.3);
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.header h1 {
+    color: #e0b0ff;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(147, 51, 234, 0.6), 
+                 0 0 20px rgba(168, 85, 247, 0.4),
+                 0 0 30px rgba(147, 51, 234, 0.3);
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(147, 51, 234, 0.6), 
+                     0 0 20px rgba(168, 85, 247, 0.4),
+                     0 0 30px rgba(147, 51, 234, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(147, 51, 234, 0.8), 
+                     0 0 30px rgba(168, 85, 247, 0.6),
+                     0 0 45px rgba(147, 51, 234, 0.5);
+    }
+}
+
+.mode-btn {
+    background: linear-gradient(145deg, #7c3aed, #a855f7);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.mode-btn:hover {
+    background: linear-gradient(145deg, #a855f7, #c084fc);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(147, 51, 234, 0.4);
+}
+
+.display-section {
+    margin-bottom: 25px;
+}
+
+#display {
+    width: 100%;
+    height: 90px;
+    font-size: 38px;
+    font-weight: 300;
+    text-align: right;
+    padding: 20px;
+    border-radius: 15px 15px 0 0;
+    border: none;
+    background: linear-gradient(145deg, #0f0a1a, #1a0d2e);
+    color: #b366ff;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(147, 51, 234, 0.1);
+    font-family: 'Courier New', monospace;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.result-preview {
+    width: 100%;
+    height: 50px;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: right;
+    padding: 12px 20px;
+    border-radius: 0 0 15px 15px;
+    background: linear-gradient(145deg, #1a0d2e, #0f0a1a);
+    color: #9933ff;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: 'Courier New', monospace;
+    border-top: 1px solid rgba(147, 51, 234, 0.2);
+}
+
+#display::-webkit-outer-spin-button,
+#display::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.buttons {
+    display: grid;
+    gap: 12px;
+}
+
+.basic-mode {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.scientific-mode {
+    grid-template-columns: repeat(8, 1fr);
+}
+
+button {
+    padding: 22px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Regular number buttons */
+button:not(.operator):not(.equal):not(.clear):not(.function):not(.delete):not(.mode-btn) {
+    background: linear-gradient(145deg, #1a0d2e, #2d1b4e);
+    color: #e0b0ff;
+    border: 1px solid rgba(147, 51, 234, 0.3);
+}
+
+button:not(.operator):not(.equal):not(.clear):not(.function):not(.delete):not(.mode-btn):hover {
+    background: linear-gradient(145deg, #2d1b4e, #3d2b5e);
+    border: 1px solid rgba(147, 51, 234, 0.6);
+}
+
+/* Operator buttons */
+.operator {
+    background: linear-gradient(145deg, #5b21b6, #7c3aed);
+    color: white;
+    font-weight: bold;
+    border: 1px solid rgba(147, 51, 234, 0.5);
+}
+
+.operator:hover {
+    background: linear-gradient(145deg, #7c3aed, #a855f7);
+    border: 1px solid rgba(147, 51, 234, 0.8);
+}
+
+/* Function buttons */
+.function {
+    background: linear-gradient(145deg, #4c1d95, #6b21a8);
+    color: #d8b4fe;
+    font-size: 13px;
+    border: 1px solid rgba(147, 51, 234, 0.3);
+}
+
+.function:hover {
+    background: linear-gradient(145deg, #6b21a8, #7c3aed);
+    border: 1px solid rgba(147, 51, 234, 0.6);
+}
+
+/* Equal button */
+.equal {
+    background: linear-gradient(145deg, #7c3aed, #a855f7);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: 1px solid rgba(147, 51, 234, 0.5);
+}
+
+.equal:hover {
+    background: linear-gradient(145deg, #a855f7, #c084fc);
+    border: 1px solid rgba(147, 51, 234, 0.8);
+}
+
+/* Clear button */
+.clear {
+    background: linear-gradient(145deg, #6b21a8, #7c3aed);
+    color: white;
+    font-weight: bold;
+    border: 1px solid rgba(147, 51, 234, 0.5);
+}
+
+.clear:hover {
+    background: linear-gradient(145deg, #7c3aed, #a855f7);
+    border: 1px solid rgba(147, 51, 234, 0.8);
+}
+
+/* Delete button */
+.delete {
+    background: linear-gradient(145deg, #6b21a8, #7c3aed);
+    color: white;
+    font-weight: bold;
+    border: 1px solid rgba(147, 51, 234, 0.5);
+}
+
+.delete:hover {
+    background: linear-gradient(145deg, #7c3aed, #a855f7);
+    border: 1px solid rgba(147, 51, 234, 0.8);
+}
+
+/* Zero button spans 2 columns in basic mode */
+.basic-mode .zero {
+    grid-column: span 2;
+}
+
+.scientific-mode .zero {
+    grid-column: span 1;
+}
+
+.buttons.hidden {
+    display: none;
+}
+@media (max-width: 900px) {
+    .buttons {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    
+    .basic-mode {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    
+    .scientific-mode {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    
+    button {
+        padding: 12px;
+        font-size: 12px;
+    }
+    
+    #display {
+        height: 50px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .buttons {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .basic-mode {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .scientific-mode {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    button {
+        padding: 12px;
+        font-size: 11px;
+    }
+    
+    #display {
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .basic-mode .zero {
+        grid-column: span 2;
+    }
+}
