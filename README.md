@@ -1,1 +1,2 @@
 # calculator
+# This project involves the development of a basic calculator using HTML, CSS, and JavaScript. The calculator supports fundamental arithmetic operations including addition, subtraction, multiplication, and division. The user interface is designed with responsive buttons and a display panel to ensure ease of use. JavaScript is used to process user inputs, validate expressions, and compute results dynamically. The project enhances understanding of DOM manipulation, event handling, and front-end application logic.
